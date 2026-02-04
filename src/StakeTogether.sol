@@ -63,8 +63,8 @@ contract StakeTogether {
     function claimReward() external {
 
         require(block.timestamp > endDate, "staking period not over");
-        require(stakes[msg.sender] > 0, "user has no stake");
         require(hasClaimed[msg.sender] == false, "reward already claimed");
+        require(stakes[msg.sender] > 0, "user has no stake");
 
         // get what msg.sender staked and store it here to use later
         uint256 userStake = stakes[msg.sender];
